@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.Analytics;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemyController : MonoBehaviour {
 
@@ -34,14 +36,8 @@ public class EnemyController : MonoBehaviour {
 				direction *= -1;
 			}
 		} else if (col.CompareTag("Player")) {
-			UnityEngine.Analytics.Analytics.CustomEvent("gameOver",new Dictionary<string, object>{});
+			Debug.Log(Analytics.CustomEvent("gameOver", new Dictionary<string, object>{}));
 			Destroy(col.gameObject);
-
-			
-
-
-				
-
 		}
 	}
 }
