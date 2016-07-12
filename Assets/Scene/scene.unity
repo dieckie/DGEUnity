@@ -301,7 +301,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 647447322}
   - 212: {fileID: 647447321}
-  - 61: {fileID: 647447320}
+  - 68: {fileID: 647447320}
   m_Layer: 0
   m_Name: Floor (1)
   m_TagString: Floor
@@ -309,8 +309,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &647447320
-BoxCollider2D:
+--- !u!68 &647447320
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -320,9 +320,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: 0, y: 0.5}
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}
 --- !u!212 &647447321
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -375,7 +376,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 953207650}
   - 212: {fileID: 953207649}
-  - 61: {fileID: 953207648}
+  - 68: {fileID: 953207648}
   m_Layer: 0
   m_Name: Floor (2)
   m_TagString: Floor
@@ -383,8 +384,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &953207648
-BoxCollider2D:
+--- !u!68 &953207648
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -394,9 +395,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: 0, y: 0.5}
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}
 --- !u!212 &953207649
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -449,7 +451,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1210274721}
   - 212: {fileID: 1210274720}
-  - 61: {fileID: 1210274719}
+  - 68: {fileID: 1210274719}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Floor
@@ -457,8 +459,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &1210274719
-BoxCollider2D:
+--- !u!68 &1210274719
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -468,9 +470,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: 0, y: 0.5}
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}
 --- !u!212 &1210274720
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -526,7 +529,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1337068070}
   - 212: {fileID: 1337068069}
-  - 61: {fileID: 1337068068}
+  - 68: {fileID: 1337068068}
   m_Layer: 0
   m_Name: Floor (3)
   m_TagString: Floor
@@ -534,8 +537,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &1337068068
-BoxCollider2D:
+--- !u!68 &1337068068
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -545,9 +548,10 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: d33ef4ea880644b48896ab84acc63097, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: 0, y: 0.5}
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}
 --- !u!212 &1337068069
 SpriteRenderer:
   m_ObjectHideFlags: 0
