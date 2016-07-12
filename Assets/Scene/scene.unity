@@ -184,9 +184,9 @@ GameObject:
   - 114: {fileID: 515310666}
   - 50: {fileID: 515310667}
   - 61: {fileID: 515310668}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,7 +218,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7fac763da6a7d4d41bc267e7b7cbd93d, type: 3}
-  m_Color: {r: 0.5808823, g: 0.14522058, b: 0.14522058, a: 1}
+  m_Color: {r: 0.75735295, g: 0.42307302, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!4 &515310665
@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 614abcab1c01c14419579e3d74a63b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  acorn: {fileID: 169536, guid: bf222f23a956ed54bb30d403a38ec233, type: 2}
   speed: 2
 --- !u!50 &515310667
 Rigidbody2D:
@@ -306,6 +307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorPrefab: {fileID: 198850, guid: 44ac7e66cbc440c46924d99e7428484e, type: 2}
   upColliderPrefab: {fileID: 191908, guid: f5a42c7d06f5fc6438944edc5cccac52, type: 2}
+  killBorder: {fileID: 172566, guid: 043e3d91bffa73646abe7ad45bdbb394, type: 2}
 --- !u!4 &1870306126
 Transform:
   m_ObjectHideFlags: 0
@@ -331,7 +333,8 @@ GameObject:
   - 114: {fileID: 2050271287}
   - 50: {fileID: 2050271286}
   - 61: {fileID: 2050271290}
-  m_Layer: 0
+  - 61: {fileID: 2050271291}
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,6 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8627fbda31803a4688b8209e50567ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 515310668}
   speed: 2.5
   jump: 7
 --- !u!212 &2050271288
@@ -421,6 +425,20 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+--- !u!61 &2050271291
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2050271285}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2

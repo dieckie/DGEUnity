@@ -5,6 +5,7 @@ public class GameController : MonoBehaviour {
 
 	public GameObject floorPrefab;
 	public GameObject upColliderPrefab;
+	public GameObject killBorder;
 
 	void Start () {
 		GameObject colliders = new GameObject("Colliders");
@@ -17,5 +18,19 @@ public class GameController : MonoBehaviour {
 			upCollider.transform.parent = colliders.transform;
 			upCollider.transform.position = new Vector3((i % 2) * -17.4f + 8.7f, -4.4f + i * 2.25f, 2f);
 		}
+		GameObject bottom = Instantiate(killBorder);
+		bottom.transform.parent = colliders.transform;
+		bottom.transform.position = new Vector3(0f, -8f);
+		GameObject top = Instantiate(killBorder);
+		top.transform.parent = colliders.transform;
+		top.transform.position = new Vector3(0f, 8f);
+		GameObject left = Instantiate(killBorder);
+		left.transform.parent = colliders.transform;
+		left.transform.position = new Vector3(-12f, 0f);
+		left.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+		GameObject right = Instantiate(killBorder);
+		right.transform.parent = colliders.transform;
+		right.transform.position = new Vector3(12f, 0f);
+		right.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
 	}
 }

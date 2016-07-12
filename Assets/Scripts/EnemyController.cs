@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EnemyController : MonoBehaviour {
 
+	public Collider2D player;
 	public float speed = 1f;
 	public float jump = 1f;
 
@@ -13,11 +14,12 @@ public class EnemyController : MonoBehaviour {
 
 
 	void Start() {
+		Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player);
 		rb = GetComponent<Rigidbody2D>();
 	}
 
 	void FixedUpdate() {
-		if(!up) {
+		if (!up) {
 			rb.velocity = new Vector2(speed * direction, 0f);
 		}
 	}
@@ -26,11 +28,13 @@ public class EnemyController : MonoBehaviour {
 		if (col.CompareTag("ColUp")) {
 			up = true;
 			rb.velocity = new Vector2(0f, jump);
-		} else if(col.CompareTag("Floor")) {
-			if(rb.velocity.y <= 0) {
+		} else if (col.CompareTag("Floor")) {
+			if (rb.velocity.y <= 0) {
 				up = false;
 				direction *= -1;
 			}
+		} else if (col.CompareTag("Player")) {
+			Destroy(col.gameObject);
 		}
 	}
 }
