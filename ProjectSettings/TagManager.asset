@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Floor
   - ColUp
-  - ColSide
+  - Enemy
   layers:
   - Default
   - TransparentFX
