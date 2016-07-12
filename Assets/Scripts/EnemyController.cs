@@ -4,35 +4,33 @@ using System.Collections;
 public class EnemyController : MonoBehaviour {
 
 	public float speed = 1f;
+	public float jump = 1f;
 
-	private float direction = 1f;
-	private float speedXMul = 1f;
+
+	private Rigidbody2D rb;
+	private float direction = -1f;
 	private bool up = false;
 
-	void Start() {
-	
-	}
 
-	void Update() {
-	
+	void Start() {
+		rb = GetComponent<Rigidbody2D>();
 	}
 
 	void FixedUpdate() {
-		if(up) {
-			transform.position = new Vector3(transform.position.x, transform.position.y + speed, 2f);
-		} else {
-			transform.position = new Vector3(transform.position.x + speed * speedXMul * direction, transform.position.y, 2f);
+		if(!up) {
+			rb.velocity = new Vector2(speed * direction, 0f);
 		}
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.CompareTag("ColUp")) {
 			up = true;
-			Debug.Log("ColUp: " + up);
-		} else if(col.CompareTag("ColSide")) {
-			up = false;
-			direction *= -1;
-			Debug.Log("ColUp: " + up);
+			rb.velocity = new Vector2(0f, jump);
+		} else if(col.CompareTag("Floor")) {
+			if(rb.velocity.y <= 0) {
+				up = false;
+				direction *= -1;
+			}
 		}
 	}
 }
