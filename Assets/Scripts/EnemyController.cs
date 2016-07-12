@@ -34,7 +34,14 @@ public class EnemyController : MonoBehaviour {
 				direction *= -1;
 			}
 		} else if (col.CompareTag("Player")) {
+			UnityEngine.Analytics.Analytics.CustomEvent("gameOver",new Dictionary<string, object>{});
 			Destroy(col.gameObject);
+
+			
+
+
+				
+
 		}
 	}
 }

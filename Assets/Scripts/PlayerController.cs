@@ -5,8 +5,9 @@ public class PlayerController : MonoBehaviour {
 
 	public GameObject acorn;
 	public float speed = 2f;
-
-private float sprintMultiplier;
+	public int shotsFired:
+	 
+	private float sprintMultiplier;
 	private Rigidbody2D rb;
 
 	void Start() {
