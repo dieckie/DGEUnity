@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floor
+  - ColUp
+  - ColSide
   layers:
   - Default
   - TransparentFX
