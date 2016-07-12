@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject acorn;
 	public float speed = 2f;
 
+private float sprintMultiplier;
 	private Rigidbody2D rb;
 
 	void Start() {
@@ -21,7 +22,12 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.velocity.y);
+		if(Input.GetButton("Sprint")){
+			sprintMultiplier=2f;
+		}else{
+			sprintMultiplier=1f;
+		}
+		rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed * sprintMultiplier, rb.velocity.y);
 	}
 
 }
