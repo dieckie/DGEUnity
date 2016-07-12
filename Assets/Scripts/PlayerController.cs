@@ -14,14 +14,16 @@ private float sprintMultiplier;
 	}
 
 	void Update() {
+
+	}
+
+	void FixedUpdate() {
 		if(Input.GetButton("Fire1")) {
 			GameObject newAcorn = Instantiate(acorn);
 			newAcorn.transform.position = new Vector3(transform.position.x, newAcorn.transform.position.y);
 
 		}
-	}
-
-	void FixedUpdate() {
+		
 		if(Input.GetButton("Sprint")){
 			sprintMultiplier=2f;
 		}else{
