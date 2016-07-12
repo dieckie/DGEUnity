@@ -6,8 +6,10 @@ using System.Collections.Generic;
 public class EnemyController : MonoBehaviour {
 
 	public Collider2D player;
+	public int health = 10;
 	public float speed = 1f;
 	public float jump = 1f;
+
 
 
 	private Rigidbody2D rb;
@@ -15,15 +17,18 @@ public class EnemyController : MonoBehaviour {
 	private bool up = false;
 
 
+
 	void Start() {
 		Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player);
 		rb = GetComponent<Rigidbody2D>();
+
 	}
 
 	void FixedUpdate() {
 		if (!up) {
 			rb.velocity = new Vector2(speed * direction, 0f);
 		}
+
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
@@ -38,6 +43,14 @@ public class EnemyController : MonoBehaviour {
 		} else if (col.CompareTag("Player")) {
 			Debug.Log(Analytics.CustomEvent("gameOver", new Dictionary<string, object>{}));
 			Destroy(col.gameObject);
+		}
+	}
+
+	public void Damage(int damage) {
+		health -= damage;
+		if(health <= 0) {
+			GetComponentInParent<Spawner>().Respawn();
+			Destroy(gameObject);
 		}
 	}
 }
