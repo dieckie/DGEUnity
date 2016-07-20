@@ -5,11 +5,12 @@ public class Spawner : MonoBehaviour {
 
 	public GameObject enemy;
 
-	void Start () {
+	void Start() {
 		Respawn();
 	}
 
 	public void Respawn() {
-		Instantiate(enemy).transform.parent = transform;
+		GameObject e = Instantiate(enemy);
+		e.transform.parent = transform;
 	}
 }
