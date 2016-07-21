@@ -19,9 +19,9 @@ public class AcornController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col != null) {
 			if (col.CompareTag("Enemy")) {
-				EnemyController ec = col.GetComponent<EnemyController>();
-				if(ec != null) {
-					ec.Damage(2);
+				EnemyController enemy = col.GetComponent<EnemyController>();
+				if(enemy != null) {
+					enemy.Damage(1);
 					Destroy(gameObject);
 				}
 

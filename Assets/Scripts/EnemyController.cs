@@ -9,9 +9,6 @@ public class EnemyController : MonoBehaviour {
 	public float rampUpTime = 0.1f;
 	public float holdTime = 0f;
 	public float rampDownTime = 0.4f;
-	public float hurtCooldown = 0.5f;
-	public float startAlpha = 0.0f;
-	public float maxAlpha = 1.0f;
 
 	public int health = 10;
 	public float speed = 1f;
@@ -22,11 +19,6 @@ public class EnemyController : MonoBehaviour {
 	private Color enemyCol;
 	private float direction = -1f;
 	private bool up = false;
-
-	private float lastHurt = 0;
-	private bool hurtSprite = false;
-
-
 
 	void Start() {
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -65,14 +57,6 @@ public class EnemyController : MonoBehaviour {
 			}
 			break;
 		}
-		switch(state) {
-		case FLASHSTATE.UP:
-			
-			break;
-		case FLASHSTATE.DOWN:
-			
-			break;
-		}
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
@@ -91,9 +75,7 @@ public class EnemyController : MonoBehaviour {
 
 	public void Damage(int damage) {
 		health -= damage;
-		hurtSprite = true;
-		sr.color = hurtColor;
-		lastHurt = Time.time;
+		Flash();
 		if(health <= 0) {
 			GetComponentInParent<Spawner>().Respawn();
 			Destroy(gameObject);

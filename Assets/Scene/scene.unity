@@ -85,93 +85,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &147238253
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 147238258}
-  - 20: {fileID: 147238257}
-  - 124: {fileID: 147238256}
-  - 92: {fileID: 147238255}
-  - 81: {fileID: 147238254}
-  m_Layer: 0
-  m_Name: Camera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!81 &147238254
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 147238253}
-  m_Enabled: 0
---- !u!92 &147238255
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 147238253}
-  m_Enabled: 0
---- !u!124 &147238256
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 147238253}
-  m_Enabled: 0
---- !u!20 &147238257
-Camera:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 147238253}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 2
-    y: 0
-    width: 0
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 1
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
---- !u!4 &147238258
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 147238253}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
 --- !u!1 &396344235
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,12 +204,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4295cc5f5577a4c048d5a12865c03163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0, b: 0, a: 1}
+  pixel: {fileID: 0}
+  color:
+    r: 1
+    g: 0
+    b: 0
+    a: 1
   startAlpha: 0
-  maxAlpha: 0.8
+  maxAlpha: 0.6
   rampUpTime: 0.1
   holdTime: 0
   rampDownTime: 0.4
+  state: 0
 --- !u!61 &843078251
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -345,6 +264,10 @@ MonoBehaviour:
   acorn: {fileID: 169536, guid: bf222f23a956ed54bb30d403a38ec233, type: 2}
   speed: 3
   cooldown: 0.5
+  sprintMultiplier: 0
+  rb: {fileID: 0}
+  flash: {fileID: 0}
+  lastTime: 0
 --- !u!212 &843078254
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -373,7 +296,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7fac763da6a7d4d41bc267e7b7cbd93d, type: 3}
-  m_Color: {r: 0.75735295, g: 0.42307302, b: 0, a: 1}
+  m_Color: {r: 0.85294116, g: 0.3979583, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!4 &843078255
@@ -419,6 +342,9 @@ MonoBehaviour:
   floorPrefab: {fileID: 198850, guid: 44ac7e66cbc440c46924d99e7428484e, type: 2}
   upColliderPrefab: {fileID: 191908, guid: f5a42c7d06f5fc6438944edc5cccac52, type: 2}
   killBorder: {fileID: 172566, guid: 043e3d91bffa73646abe7ad45bdbb394, type: 2}
+  height: 0
+  width: 0
+  game: 0
 --- !u!4 &1870306126
 Transform:
   m_ObjectHideFlags: 0

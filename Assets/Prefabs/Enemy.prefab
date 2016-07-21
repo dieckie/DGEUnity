@@ -89,11 +89,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8627fbda31803a4688b8209e50567ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hurtColor: {r: 0.6544118, g: 0.121856, b: 0, a: 1}
+  hurtColor:
+    r: 1
+    g: 0
+    b: 0
+    a: 1
+  rampUpTime: 0.1
+  holdTime: 0.2
+  rampDownTime: 0.2
   health: 10
-  hurtCooldown: 0.5
   speed: 2.5
   jump: 7
+  rb: {fileID: 0}
+  sr: {fileID: 0}
+  enemyCol:
+    r: 0
+    g: 0
+    b: 0
+    a: 0
+  direction: -1
+  up: 0
+  state: 0
 --- !u!212 &21292290
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -121,7 +137,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7fac763da6a7d4d41bc267e7b7cbd93d, type: 3}
-  m_Color: {r: 0, g: 0.5514706, b: 0.09508115, a: 1}
+  m_Color: {r: 0, g: 0.49803922, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000
