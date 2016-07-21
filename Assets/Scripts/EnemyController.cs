@@ -6,8 +6,14 @@ using System.Collections.Generic;
 public class EnemyController : MonoBehaviour {
 
 	public Color hurtColor;
-	public int health = 10;
+	public float rampUpTime = 0.1f;
+	public float holdTime = 0f;
+	public float rampDownTime = 0.4f;
 	public float hurtCooldown = 0.5f;
+	public float startAlpha = 0.0f;
+	public float maxAlpha = 1.0f;
+
+	public int health = 10;
 	public float speed = 1f;
 	public float jump = 1f;
 
@@ -37,11 +43,35 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	void Update() {
-		if(hurtSprite) {
-			if(Time.time - lastHurt > hurtCooldown) {
-				sr.color = enemyCol;
-				hurtSprite = false;
+		switch(state) {
+		case FLASHSTATE.UP:
+			sr.color = Color.Lerp(enemyCol, hurtColor, timer.Elapsed);
+			if(timer.UpdateAndTest()) {
+				state = FLASHSTATE.HOLD;
+				timer = new Timer(holdTime);
 			}
+			break;
+		case FLASHSTATE.HOLD:
+			if(timer.UpdateAndTest()) {
+				state = FLASHSTATE.DOWN;
+				timer = new Timer(rampDownTime);
+			}
+			break;
+		case FLASHSTATE.DOWN:
+			sr.color = Color.Lerp(hurtColor, enemyCol, timer.Elapsed);
+			if(timer.UpdateAndTest()) {
+				state = FLASHSTATE.OFF;
+				timer = null;
+			}
+			break;
+		}
+		switch(state) {
+		case FLASHSTATE.UP:
+			
+			break;
+		case FLASHSTATE.DOWN:
+			
+			break;
 		}
 	}
 
@@ -68,5 +98,20 @@ public class EnemyController : MonoBehaviour {
 			GetComponentInParent<Spawner>().Respawn();
 			Destroy(gameObject);
 		}
+	}
+
+	enum FLASHSTATE {
+		OFF,
+		UP,
+		HOLD,
+		DOWN
+	}
+
+	Timer timer;
+	FLASHSTATE state = FLASHSTATE.OFF;
+
+	public void Flash() {
+		timer = new Timer(rampUpTime);
+		state = FLASHSTATE.UP;
 	}
 }
