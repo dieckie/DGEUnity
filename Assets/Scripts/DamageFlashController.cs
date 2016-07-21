@@ -11,11 +11,10 @@ public class DamageFlashController : MonoBehaviour {
 	public float rampDownTime = 0.5f;
 
 	enum FLASHSTATE {
-OFF,
-UP,
-HOLD,
-DOWN
-
+		OFF,
+		UP,
+		HOLD,
+		DOWN
 	}
 
 	Timer timer;
