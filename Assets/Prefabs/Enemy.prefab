@@ -89,7 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8627fbda31803a4688b8209e50567ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   hurtColor: {r: 0.6544118, g: 0.121856, b: 0, a: 1}
   health: 10
   hurtCooldown: 0.5

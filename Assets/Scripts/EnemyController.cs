@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class EnemyController : MonoBehaviour {
 
-	public GameObject player;
 	public Color hurtColor;
 	public int health = 10;
 	public float hurtCooldown = 0.5f;
@@ -24,7 +23,8 @@ public class EnemyController : MonoBehaviour {
 
 
 	void Start() {
-		//Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
+		GameObject player = GameObject.FindGameObjectWithTag("Player");
+		Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
 		rb = GetComponent<Rigidbody2D>();
 		sr = GetComponent<SpriteRenderer>();
 		enemyCol = sr.color;
@@ -55,8 +55,7 @@ public class EnemyController : MonoBehaviour {
 				direction *= -1;
 			}
 		} else if (col.CompareTag("Player")) {
-			Debug.Log(Analytics.CustomEvent("gameOver", new Dictionary<string, object>{}));
-			Destroy(col.gameObject);
+			col.gameObject.GetComponent<PlayerController>().hurt();
 		}
 	}
 

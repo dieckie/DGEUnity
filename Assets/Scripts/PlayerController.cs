@@ -9,10 +9,12 @@ public class PlayerController : MonoBehaviour {
 	 
 	private float sprintMultiplier;
 	private Rigidbody2D rb;
+	private DamageFlashController flash;
 	private float lastTime;
 
 	void Start() {
 		rb = GetComponent<Rigidbody2D>();
+		flash = GetComponent<DamageFlashController>();
 		lastTime = -50;
 	}
 
@@ -35,6 +37,10 @@ public class PlayerController : MonoBehaviour {
 			sprintMultiplier = 1f;
 		}
 		rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed * sprintMultiplier, rb.velocity.y);
+	}
+
+	public void hurt() {
+		flash.Flash();
 	}
 
 }
