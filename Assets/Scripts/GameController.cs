@@ -45,4 +45,9 @@ public class GameController : MonoBehaviour {
 		float x = width / 2 - (width - game);
 		Gizmos.DrawLine(new Vector3(x, -height), new Vector3(x, height));
 	}
+           void FixedUpdate() {
+		if (Input.GetButton("Back")) {
+			Application.Exit();
+			}
+		}
 }
