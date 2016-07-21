@@ -14,17 +14,22 @@ public class GameController : MonoBehaviour {
 		height = 2f * cam.orthographicSize;
 		width = height * cam.aspect;
 		game = 12f;
+		float shopBorder = -0.5f * width + game;
+		float gameMiddle = (game - width) * 0.5f;
+
 		GameObject colliders = new GameObject("Colliders");
 		GameObject ground = new GameObject("Ground");
 		for(int i = 0; i < 4; i++) {
 			GameObject floor = Instantiate(floorPrefab);
-			floor.transform.position = new Vector3(0f, -4.75f + i * 2.25f, 2f);
+			floor.transform.position = new Vector3(gameMiddle, -4.75f + i * 2.25f, 2f);
 			floor.transform.parent = ground.transform;
 			GameObject upCollider = Instantiate(upColliderPrefab);
 			upCollider.transform.parent = colliders.transform;
 			//upCollider.transform.position = new Vector3((i % 2) * -17.4f + 8.7f, -4.4f + i * 2.25f, 2f);
-			upCollider.transform.position = new Vector3((i % 2) * (-width + 1) + (width - 1) / 2, -4.4f + i * 2.25f, 2f);
+			upCollider.transform.position = new Vector3(gameMiddle + (i % 2) * -11f + 5.5f, -4.4f + i * 2.25f, 2f);
+
 		}
+
 		GameObject bottom = Instantiate(killBorder);
 		bottom.transform.parent = colliders.transform;
 		bottom.transform.position = new Vector3(0f, -8f);
