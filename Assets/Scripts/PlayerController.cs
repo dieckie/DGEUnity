@@ -23,20 +23,24 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (Input.GetButton("Jump")) {
+		
+		if (Input.GetButton("Jump") || Input.touchCount > 0) {
 			if (Time.time - lastTime > cooldown) {
 				GameObject newAcorn = Instantiate(acorn);
 				newAcorn.transform.position = new Vector3(transform.position.x, transform.position.y);
 				lastTime = Time.time;
 			}
 		}
-		
 		if (Input.GetButton("Sprint")) {
 			sprintMultiplier = 2f;
 		} else {
 			sprintMultiplier = 1f;
 		}
-		rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed * sprintMultiplier, rb.velocity.y);
+		if(Application.platform == RuntimePlatform.Android) {
+			rb.velocity = new Vector2(Input.acceleration.x * speed * sprintMultiplier, rb.velocity.y);
+		} else {
+			rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed * sprintMultiplier, rb.velocity.y);
+		}
 	}
 
 	public void hurt() {
