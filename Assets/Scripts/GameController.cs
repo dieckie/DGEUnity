@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour {
 			GameObject upCollider = Instantiate(upColliderPrefab);
 			upCollider.transform.parent = colliders.transform;
 			//upCollider.transform.position = new Vector3((i % 2) * -17.4f + 8.7f, -4.4f + i * 2.25f, 2f);
-			upCollider.transform.position = new Vector3(gameMiddle + (i % 2) * -11f + 5.5f, -4.4f + i * 2.25f, 2f);
+			upCollider.transform.position = new Vector3(gameMiddle + (i % 2) * -game + game / 2, -4.4f + i * 2.25f, 2f);
 
 		}
 
@@ -51,7 +51,7 @@ public class GameController : MonoBehaviour {
 		Gizmos.DrawLine(new Vector3(x, -height), new Vector3(x, height));
 	}
 
-	void FixedUpdate() {
+	void Update() {
 		if(Input.GetButton("Cancel")) {
 			Application.Quit();
 		}
