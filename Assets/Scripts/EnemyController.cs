@@ -77,6 +77,7 @@ public class EnemyController : MonoBehaviour {
 		health -= damage;
 		Flash();
 		if(health <= 0) {
+			CoinController.AddCoins(1);
 			GetComponentInParent<Spawner>().Respawn();
 			Destroy(gameObject);
 		}

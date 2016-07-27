@@ -6,10 +6,11 @@ public class GameController : MonoBehaviour {
 	public GameObject floorPrefab;
 	public GameObject upColliderPrefab;
 	public GameObject killBorder;
-
+	public GameObject player;
 	private float height, width, game;
 
 	void Start() {
+		CoinController.Init();
 		Camera cam = Camera.main;
 		height = 2f * cam.orthographicSize;
 		width = height * cam.aspect;
@@ -54,6 +55,10 @@ public class GameController : MonoBehaviour {
 	void Update() {
 		if(Input.GetButton("Cancel")) {
 			Application.Quit();
+		}
+		if(Input.GetKey(KeyCode.S)){
+			Debug.Log(PlayerPrefs.GetInt("coins") + "");
+			PlayerPrefs.Save();		
 		}
 	}
 }

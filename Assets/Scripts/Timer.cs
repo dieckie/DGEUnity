@@ -7,6 +7,7 @@ public class Timer {
 
 	public Timer(float timeToCountInSec) {
 		_totalTime = timeToCountInSec;
+
 	}
 
 	public bool UpdateAndTest() {
