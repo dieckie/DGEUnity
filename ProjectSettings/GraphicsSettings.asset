@@ -36,6 +36,7 @@ GraphicsSettings:
   - {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 10782, guid: 0000000000000000f000000000000000, type: 0}
   m_PreloadedShaders: []
+<<<<<<< HEAD
   m_SpritesDefaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000,
     type: 0}
   m_ShaderSettings_Tier1:
@@ -53,6 +54,10 @@ GraphicsSettings:
     standardShaderQuality: 2
     useReflectionProbeBoxProjection: 1
     useReflectionProbeBlending: 1
+=======
+  m_ShaderSettings:
+    useScreenSpaceShadows: 0
+>>>>>>> 2e08fb3f67d45c05b4cd08084827b84e8b1cc0eb
   m_BuildTargetShaderSettings: []
   m_LightmapStripping: 0
   m_FogStripping: 0

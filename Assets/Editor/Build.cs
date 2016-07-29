@@ -5,7 +5,6 @@ using System.IO;
 using System;
 
 public class Build {
-	[MenuItem("Build/Build")]
 	public static void BuildGame() {
 		string[] args = Environment.GetCommandLineArgs();
 		string path = "";
@@ -24,7 +23,7 @@ public class Build {
 		Directory.CreateDirectory(path + "Android/");
 		FileUtil.DeleteFileOrDirectory(path + "Win64/");
 		Directory.CreateDirectory(path + "Win64/");
-		BuildPipeline.BuildPlayer(levels, path + "Android/DGE_android.apk", BuildTarget.Android, BuildOptions.None);
 		BuildPipeline.BuildPlayer(levels, path + "Win64/DGE_win64.exe", BuildTarget.StandaloneWindows64, BuildOptions.None);
+		BuildPipeline.BuildPlayer(levels, path + "Android/DGE_android.apk", BuildTarget.Android, BuildOptions.None);
 	}
 }
