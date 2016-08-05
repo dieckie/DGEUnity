@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UIController : MonoBehaviour {
+public class UI : MonoBehaviour {
 
 	void Start () {
 	

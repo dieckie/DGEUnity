@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour {
+public class Player : MonoBehaviour {
 
 	public GameObject acorn;
 	public float speed = 2f;
@@ -9,13 +9,13 @@ public class PlayerController : MonoBehaviour {
 	 
 	private float sprintMultiplier;
 	private Rigidbody2D rb;
-	private DamageFlashController flash;
+	private DamageFlash flash;
 	private float lastTime;
 
 	void Start() {
-		transform.position = new Vector3((GameController.game - GameController.width) / 2, transform.position.y, transform.position.z);
+		transform.position = new Vector3((Game.game - Game.width) / 2, transform.position.y, transform.position.z);
 		rb = GetComponent<Rigidbody2D>();
-		flash = GetComponent<DamageFlashController>();
+		flash = GetComponent<DamageFlash>();
 		lastTime = -50;
 	}
 

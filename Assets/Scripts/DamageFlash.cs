@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DamageFlashController : MonoBehaviour {
+public class DamageFlash : MonoBehaviour {
 	private Texture2D pixel;
 	public Color color = Color.red;
 	public float startAlpha = 0.0f;

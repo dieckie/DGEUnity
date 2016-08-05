@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AcornController : MonoBehaviour {
+public class Acorn : MonoBehaviour {
 
 	public float speed;
 
@@ -21,7 +21,7 @@ public class AcornController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col != null) {
 			if (col.CompareTag("Enemy")) {
-			    EnemyController enemy = col.GetComponent<EnemyController>();
+			    Enemy enemy = col.GetComponent<Enemy>();
 				if(enemy != null) {
 					enemy.Damage(1);
 					Destroy(gameObject);

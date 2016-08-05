@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameController : MonoBehaviour {
+public class Game : MonoBehaviour {
 
 	public GameObject floorPrefab;
 	public GameObject upColliderPrefab;
@@ -10,19 +10,19 @@ public class GameController : MonoBehaviour {
 	public static float height, width, game;
 
 	void Start() {
-		CoinController.Init();
+		Coin.Init();
 		Camera cam = Camera.main;
-		GameController.height = 2f * cam.orthographicSize;
-		GameController.width = GameController.height * cam.aspect;
-		GameController.game = 12f;
-		float shopBorder = -0.5f * GameController.width + GameController.game;
-		float gameMiddle = (GameController.game - GameController.width) * 0.5f;
+		Game.height = 2f * cam.orthographicSize;
+		Game.width = Game.height * cam.aspect;
+		Game.game = 12f;
+		//float shopBorder = -0.5f * GameController.width + GameController.game;
+		float gameMiddle = (Game.game - Game.width) * 0.5f;
 
 		GameObject colliders = new GameObject("Colliders");
 		GameObject ground = new GameObject("Ground");
 		for(int i = 0; i < 4; i++) {
 			GameObject floor = Instantiate(floorPrefab);
-			floor.transform.position = new Vector3(gameMiddle, -4.75f + i * 2.25f, 2f);
+			floor.transform.position = new Vector3(gameMiddle, -4.86f + i * 2.25f, 2f);
 			floor.transform.parent = ground.transform;
 			GameObject upCollider = Instantiate(upColliderPrefab);
 			upCollider.transform.parent = colliders.transform;
