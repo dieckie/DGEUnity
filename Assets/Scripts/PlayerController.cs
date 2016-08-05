@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
 	private float lastTime;
 
 	void Start() {
+		transform.position = new Vector3((GameController.game - GameController.width) / 2, transform.position.y, transform.position.z);
 		rb = GetComponent<Rigidbody2D>();
 		flash = GetComponent<DamageFlashController>();
 		lastTime = -50;

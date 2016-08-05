@@ -7,16 +7,16 @@ public class GameController : MonoBehaviour {
 	public GameObject upColliderPrefab;
 	public GameObject killBorder;
 	public GameObject player;
-	private float height, width, game;
+	public static float height, width, game;
 
 	void Start() {
 		CoinController.Init();
 		Camera cam = Camera.main;
-		height = 2f * cam.orthographicSize;
-		width = height * cam.aspect;
-		game = 12f;
-		float shopBorder = -0.5f * width + game;
-		float gameMiddle = (game - width) * 0.5f;
+		GameController.height = 2f * cam.orthographicSize;
+		GameController.width = GameController.height * cam.aspect;
+		GameController.game = 12f;
+		float shopBorder = -0.5f * GameController.width + GameController.game;
+		float gameMiddle = (GameController.game - GameController.width) * 0.5f;
 
 		GameObject colliders = new GameObject("Colliders");
 		GameObject ground = new GameObject("Ground");
