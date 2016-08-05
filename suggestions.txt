@@ -13,6 +13,5 @@ Wellen:
 UI:
 	Vorschau der nexten Welle(http://imgur.com/bng1UuE)?
 	
-
-
-	
+Gegner:
+	Andere leichtere Gegner spawnt
