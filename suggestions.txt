@@ -1,4 +1,18 @@
-Coins über Zeit? -- neeeeeee
-Scheller werdende Gegner / Mehr Zufall dadrin -- das klingt gut
+﻿Coins über Zeit? -- neeeeeee
+
 Zwei Kameras?
+
 Hurtflash vom Bildschirm nur außen (Ori-mäßig) -- jaaaaaaa
+
+Wellen:
+	Scheller werdende Gegner / Mehr Zufall dadrin -- das klingt gut
+	mehr verschiedene(schwerere) Gegener statt nur immer mehr der selben Art
+	(Differences in Scale vs Differences in Kind)
+	Prozedural generiert?
+	
+UI:
+	Vorschau der nexten Welle(http://imgur.com/bng1UuE)?
+	
+
+
+	
