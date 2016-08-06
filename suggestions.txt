@@ -5,13 +5,18 @@ Zwei Kameras?
 Hurtflash vom Bildschirm nur außen (Ori-mäßig) -- jaaaaaaa
 
 Wellen:
+	neue Welle falls Gegner oben Links?
 	Scheller werdende Gegner / Mehr Zufall dadrin -- das klingt gut
 	mehr verschiedene(schwerere) Gegener statt nur immer mehr der selben Art
 	(Differences in Scale vs Differences in Kind)
 	Prozedural generiert?
 	
 UI:
-	Vorschau der nexten Welle(http://imgur.com/bng1UuE)?
+	Vorschau der nexten Welle( imgur.com/bng1UuE )?
 	
 Gegner:
 	Andere leichtere Gegner spawnt
+	weniger Leben = mehr Schaden
+	Fernkampf
+	
+	
