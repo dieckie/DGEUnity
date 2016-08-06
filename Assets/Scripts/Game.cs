@@ -6,7 +6,7 @@ public class Game : MonoBehaviour {
 	public GameObject floorPrefab;
 	public GameObject upColliderPrefab;
 	public GameObject killBorder;
-	public GameObject player;
+
 	public static float height, width, game;
 
 	void Start() {

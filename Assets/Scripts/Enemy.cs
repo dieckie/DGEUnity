@@ -6,8 +6,7 @@ using System.Collections.Generic;
 public class Enemy : MonoBehaviour {
 
 
-
-	public int health = 10;
+	public float maxHealth=10f;
 	public float speed = 1f;
 	public float jump = 1f;
 
@@ -15,8 +14,10 @@ public class Enemy : MonoBehaviour {
 
 	private float direction = -1f;
 	private bool up = false;
+	private float health;
 
 	void Start() {
+		health = maxHealth;
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
 		Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
 		rb = GetComponent<Rigidbody2D>();
@@ -55,7 +56,9 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
-
+	public float getHealth(){
+		return health;
+	}
 
 
 }

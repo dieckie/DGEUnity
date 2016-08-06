@@ -5,20 +5,24 @@ public class HealthBar : MonoBehaviour {
 	public Vector2 size;
 	public float offset;
 
+	private Enemy e;
 
+	private float max;
+	private float health;
 	private Texture2D redBar;
-	private Texture2D greenBar;
+
 	// Use this for initialization
 	void Start() {
-		
-		redBar = (Texture2D)Resources.Load("Texture/UI/Red2");
+		e = GetComponent<Enemy>();
+		max = e.maxHealth;
+		health = max;
 
-		greenBar = (Texture2D)Resources.Load("Texture/UI/Green");	
+		redBar = (Texture2D)Resources.Load("Texture/UI/Red2");
 	}
 	
 	// Update is called once per frame
 	void Update() {
-		
+		health = e.getHealth();
 
 	}
 
@@ -32,6 +36,7 @@ public class HealthBar : MonoBehaviour {
 
 		GUI.Box(new Rect(new Vector2(urx, ury), size),"");
 
-		GUI.DrawTextureWithTexCoords(new Rect(new Vector2(urx+1, ury+1), new Vector2(size.x-2, size.y-2)), redBar, new Rect(24f / 50, 24f / 50, 2f / 50, 2f / 50));
+		GUI.DrawTextureWithTexCoords(new Rect(new Vector2(urx + 1, ury + 1), new Vector2((size.x - 2) * health / max, size.y - 2)), redBar, new Rect(24f / 50, 24f / 50, 2f / 50, 2f / 50));
 	}
+
 }
