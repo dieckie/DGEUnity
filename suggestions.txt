@@ -15,8 +15,7 @@ UI:
 	Vorschau der nexten Welle( imgur.com/bng1UuE )?
 	
 Gegner:
-	Andere leichtere Gegner spawnt
+	Gegner, der andere leichtere Gegner spawnt
 	weniger Leben = mehr Schaden
-	Fernkampf
-	
-	
+	Schwerer Gegner, der beim Springen kurz Bewegungsunfähig macht.
+	Fernkampf --Boss?
