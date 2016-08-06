@@ -958,7 +958,6 @@ MonoBehaviour:
   floorPrefab: {fileID: 198850, guid: 44ac7e66cbc440c46924d99e7428484e, type: 2}
   upColliderPrefab: {fileID: 191908, guid: f5a42c7d06f5fc6438944edc5cccac52, type: 2}
   killBorder: {fileID: 172566, guid: 043e3d91bffa73646abe7ad45bdbb394, type: 2}
-  player: {fileID: 0}
 --- !u!4 &1870306126
 Transform:
   m_ObjectHideFlags: 0
@@ -999,7 +998,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c9686a16080f845a28fddd9a85a2b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 136072, guid: a37dae18f107c1f4cb97aa0eed862ceb, type: 2}
+  enemys:
+  - {fileID: 136072, guid: a37dae18f107c1f4cb97aa0eed862ceb, type: 2}
 --- !u!4 &1959959344
 Transform:
   m_ObjectHideFlags: 0

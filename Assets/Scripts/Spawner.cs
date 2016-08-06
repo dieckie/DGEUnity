@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Spawner : MonoBehaviour {
 
-	public GameObject enemy;
+	public List<GameObject> enemys = new List<GameObject>();
 
 	void Start() {
 		Respawn();
 	}
 
 	public void Respawn() {
-		GameObject e = Instantiate(enemy);
+		GameObject e = Instantiate(enemys[0]);
 		e.transform.parent = transform;
 	}
 }
