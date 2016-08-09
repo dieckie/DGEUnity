@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Enemys;
 
 public class Acorn : MonoBehaviour {
 
@@ -21,7 +22,7 @@ public class Acorn : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col != null) {
 			if (col.CompareTag("Enemy")) {
-			    Enemy enemy = col.GetComponent<Enemy>();
+			    SimpleEnemy enemy = col.GetComponent<SimpleEnemy>();
 				if(enemy != null) {
 					enemy.Damage(1);
 					Destroy(gameObject);

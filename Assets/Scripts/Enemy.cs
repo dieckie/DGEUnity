@@ -1,36 +1,43 @@
 ﻿using UnityEngine;
-using UnityEngine.Analytics;
 using System.Collections;
-using System.Collections.Generic;
-
-public class Enemy : MonoBehaviour {
 
 
+public abstract class Enemy : MonoBehaviour {
 	public float maxHealth=10f;
 	public float speed = 1f;
-	public float jump = 1f;
+	public int difficulty=1;
+	public float damage=1f;
 
-	private Rigidbody2D rb;
 
-	private float direction = -1f;
-	private bool up = false;
-	private float health;
+	internal GameObject player;
+	internal Rigidbody2D rb;
+	internal float direction = -1f;
+	internal bool up = false;
+	internal float health;
+	internal float jump = 7f;
 
-	void Start() {
+	// Use this for initialization
+	void Start () {
 		health = maxHealth;
-		GameObject player = GameObject.FindGameObjectWithTag("Player");
+		player = GameObject.FindGameObjectWithTag("Player");
 		Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
 		rb = GetComponent<Rigidbody2D>();
 	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 
-	void FixedUpdate() {
+	void FixedUpdate(){
+		Movement();
+
+	}
+
+	void Movement(){
 		if(!up) {
 			rb.velocity = new Vector2(speed * direction, 0f);
 		}
-	}
-
-	void Update() {
-		
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
@@ -43,22 +50,20 @@ public class Enemy : MonoBehaviour {
 				direction *= -1;
 			}
 		} else if (col.CompareTag("Player")) {
-			col.gameObject.GetComponent<Player>().hurt();
+			col.gameObject.GetComponent<Player>().hurt(damage);
 		}
 	}
 
 	public void Damage(int damage) {
 		health -= damage;
-			if(health <= 0) {
+		if(health <= 0) {
 			Coin.AddCoins(1);
 			GetComponentInParent<Spawner>().Respawn();
 			Destroy(gameObject);
 		}
 	}
 
-	public float getHealth(){
+	public float getHealth() {
 		return health;
 	}
-
-
 }

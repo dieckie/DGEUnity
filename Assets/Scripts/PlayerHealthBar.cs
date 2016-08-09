@@ -2,11 +2,11 @@
 using System.Collections;
 using Enemys;
 
-public class HealthBar : MonoBehaviour {
+public class PlayerHealthBar : MonoBehaviour {
 	public Vector2 size;
 	public float offset;
 
-	private Enemy e;
+	private Player e;
 
 	private float max;
 	private float health;
@@ -14,16 +14,16 @@ public class HealthBar : MonoBehaviour {
 
 	// Use this for initialization
 	void Start() {
-		e = GetComponent<Enemy>();
-		max = e.maxHealth;
+		e = GetComponent<Player>();
+		max = e.health;
 		health = max;
 
 		redBar = (Texture2D)Resources.Load("Texture/UI/Red2");
 	}
-	
+
 	// Update is called once per frame
 	void Update() {
-		health = e.getHealth();
+		health = e.health;
 
 	}
 

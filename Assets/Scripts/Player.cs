@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
 	public GameObject acorn;
 	public float speed = 2f;
 	public float cooldown = 2f;
+	public float health = 20f;
 	 
 	private float sprintMultiplier;
 	private Rigidbody2D rb;
@@ -44,8 +45,12 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	public void hurt() {
-		flash.Flash();
+	public void hurt(float damage) {
+			health -= damage;
+			flash.Flash();
+		if(health <= 0) {
+			Destroy(gameObject);
+		}
 	}
 
 }
