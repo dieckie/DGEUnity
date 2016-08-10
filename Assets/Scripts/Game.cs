@@ -5,6 +5,7 @@ public class Game : MonoBehaviour {
 
 	public GameObject floorPrefab;
 	public GameObject upColliderPrefab;
+	public GameObject sideColliderPrefab;
 	public GameObject killBorder;
 
 	public static float height, width, game;
@@ -24,12 +25,20 @@ public class Game : MonoBehaviour {
 			GameObject floor = Instantiate(floorPrefab);
 			floor.transform.position = new Vector3(gameMiddle, -4.86f + i * 2.25f, 2f);
 			floor.transform.parent = ground.transform;
-			GameObject upCollider = Instantiate(upColliderPrefab);
-			upCollider.transform.parent = colliders.transform;
-			//upCollider.transform.position = new Vector3((i % 2) * -17.4f + 8.7f, -4.4f + i * 2.25f, 2f);
-			upCollider.transform.position = new Vector3(gameMiddle + (i % 2) * -game + game / 2, -4.4f + i * 2.25f, 2f);
-
+			if(i != 3) {
+				GameObject upCollider = Instantiate(upColliderPrefab);
+				upCollider.transform.parent = colliders.transform;
+				upCollider.transform.position = new Vector3(gameMiddle + (i % 2) * -game + game / 2, -4.4f + i * 2.25f, 2f);
+			}
+			if(i != 0) {
+				GameObject sideCollider = Instantiate(sideColliderPrefab);
+				sideCollider.transform.parent = colliders.transform;
+				sideCollider.transform.position = new Vector3(gameMiddle + ((i + 1) % 2) * (-game + 1) + (game - 1) / 2, -4.82f + i * 2.25f, 2f);
+			}
 		}
+		GameObject sideColliderTop = Instantiate(sideColliderPrefab);
+		sideColliderTop.transform.parent = colliders.transform;
+		sideColliderTop.transform.position = new Vector3(gameMiddle + (-game + 1) / 2, -4.4f + 6.75f, 2f);
 
 		GameObject bottom = Instantiate(killBorder);
 		bottom.transform.parent = colliders.transform;
@@ -56,7 +65,7 @@ public class Game : MonoBehaviour {
 		if(Input.GetButton("Cancel")) {
 			Application.Quit();
 		}
-		if(Input.GetKey(KeyCode.S)){
+		if(Input.GetKey(KeyCode.S)) {
 			Debug.Log(PlayerPrefs.GetInt("coins") + "");
 			PlayerPrefs.Save();		
 		}

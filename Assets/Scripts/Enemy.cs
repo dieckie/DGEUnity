@@ -3,53 +3,57 @@ using System.Collections;
 
 
 public abstract class Enemy : MonoBehaviour {
-	public float maxHealth=10f;
+	
 	public float speed = 1f;
-	public int difficulty=1;
-	public float damage=1f;
+	public float maxHealth = 10f;
+	public float damage = 1f;
 
 
 	internal GameObject player;
 	internal Rigidbody2D rb;
-	internal float direction = -1f;
+	internal float direction = 1f;
 	internal bool up = false;
 	internal float health;
 	internal float jump = 7f;
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
 		health = maxHealth;
 		player = GameObject.FindGameObjectWithTag("Player");
 		Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
 		rb = GetComponent<Rigidbody2D>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-	void FixedUpdate(){
+	void FixedUpdate() {
 		Movement();
-
 	}
 
-	void Movement(){
+	void Movement() {
 		if(!up) {
 			rb.velocity = new Vector2(speed * direction, 0f);
 		}
 	}
 
+	private Collider2D lastCollider;
+
 	void OnTriggerEnter2D(Collider2D col) {
-		if (col.CompareTag("ColUp")) {
+		if(col.CompareTag("ColUp")) {
 			up = true;
 			rb.velocity = new Vector2(0f, jump);
-		} else if (col.CompareTag("Floor")) {
-			if (rb.velocity.y <= 0) {
-				up = false;
+		} else if(col.CompareTag("ColSide")) {
+			if(lastCollider != null) {
+				if(!lastCollider.Equals(col)) {
+					direction *= -1;
+					lastCollider = col;
+				}
+			} else {
 				direction *= -1;
+				lastCollider = col;
 			}
-		} else if (col.CompareTag("Player")) {
+			if(rb.velocity.y <= 0) {
+				up = false;
+			}
+		} else if(col.CompareTag("Player")) {
 			col.gameObject.GetComponent<Player>().hurt(damage);
 		}
 	}
@@ -58,12 +62,21 @@ public abstract class Enemy : MonoBehaviour {
 		health -= damage;
 		if(health <= 0) {
 			Coin.AddCoins(1);
-			GetComponentInParent<Spawner>().Respawn();
+			GetComponentInParent<Spawner>().EnemyDied();
+
 			Destroy(gameObject);
 		}
 	}
 
 	public float getHealth() {
 		return health;
+	}
+
+	public float getMaxHealth() {
+		return maxHealth;
+	}
+
+	public float getDamage() {
+		return damage;
 	}
 }

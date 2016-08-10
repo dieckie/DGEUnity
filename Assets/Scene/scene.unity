@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: {x: 65, y: 12}
-  offset: -65
+  offset: -70
 --- !u!1 &843845022
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,6 +972,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorPrefab: {fileID: 198850, guid: 44ac7e66cbc440c46924d99e7428484e, type: 2}
   upColliderPrefab: {fileID: 191908, guid: f5a42c7d06f5fc6438944edc5cccac52, type: 2}
+  sideColliderPrefab: {fileID: 1000011196476712, guid: 159d4ee1f3570cf4ba8d5274aeccd6d2,
+    type: 2}
   killBorder: {fileID: 172566, guid: 043e3d91bffa73646abe7ad45bdbb394, type: 2}
 --- !u!4 &1870306126
 Transform:
@@ -1014,7 +1016,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemys:
-  - {fileID: 136072, guid: a37dae18f107c1f4cb97aa0eed862ceb, type: 2}
+  - e: {fileID: 11484878, guid: a37dae18f107c1f4cb97aa0eed862ceb, type: 2}
+    diff: 1
+  - e: {fileID: 114000013412748828, guid: 646310a1eec0e1e4ba9ab2438fc18746, type: 2}
+    diff: 2
+  - e: {fileID: 114000012991596506, guid: a715a3d3a0d4a634ca56b8015a61d01f, type: 2}
+    diff: 3
+  difficulty: 1
+  staticPuffer: 1
+  dynamicPuffer: 1
 --- !u!4 &1959959344
 Transform:
   m_ObjectHideFlags: 0

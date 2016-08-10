@@ -90,9 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52ac91bdb2dd08f44a82db71f7f8910b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
   speed: 2.5
-  difficulty: 1
+  maxHealth: 2
   damage: 1
 --- !u!212 &21292290
 SpriteRenderer:

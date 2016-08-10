@@ -15,7 +15,7 @@ public class HealthBar : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
 		e = GetComponent<Enemy>();
-		max = e.maxHealth;
+		max = e.getMaxHealth();
 		health = max;
 
 		redBar = (Texture2D)Resources.Load("Texture/UI/Red2");
