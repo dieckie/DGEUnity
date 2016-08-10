@@ -22,13 +22,13 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update() {
-
+		
 	}
 
 	void FixedUpdate() {
 
 
-		Debug.Log(_useGamepad);
+
 		
 		if(Input.GetButton("Jump") || Input.touchCount > 0) {
 			if(Time.time - lastTime > cooldown) {

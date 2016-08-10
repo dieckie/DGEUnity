@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 
 public class Spawner : MonoBehaviour {
 
 	public List<EnemyDiff> enemys = new List<EnemyDiff>();
 	public int difficulty = 1;
+
+	public Text waveText;
 
 	public float staticPuffer = 1f;
 	public float dynamicPuffer = 1f;
@@ -15,7 +18,7 @@ public class Spawner : MonoBehaviour {
 
 	private float nextTime;
 	private int livingEnemys = 0;
-	private int wave = 1;
+	private int wave = 0;
 
 	void Start() {
 		NextWave();
@@ -36,8 +39,10 @@ public class Spawner : MonoBehaviour {
 	}
 
 	private void NextWave() {
+		wave++;
 		MakeList();
 		nextTime = Time.time;
+		waveText.text = "Wave: " + wave;
 	}
 
 	public void EnemyDied() {
