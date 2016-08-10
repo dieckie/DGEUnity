@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class Game : MonoBehaviour {
 
 	public GameObject floorPrefab;
@@ -66,6 +67,7 @@ public class Game : MonoBehaviour {
 			Application.Quit();
 		}
 		if(Input.GetKey(KeyCode.S)) {
+
 			Debug.Log(PlayerPrefs.GetInt("coins") + "");
 			PlayerPrefs.Save();		
 		}
