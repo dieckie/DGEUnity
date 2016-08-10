@@ -37,6 +37,7 @@ public class Spawner : MonoBehaviour {
 
 	private void NextWave() {
 		MakeList();
+		difficulty = wave + wave;
 		nextTime = Time.time;
 	}
 
