@@ -56,7 +56,7 @@ public class Build {
 			FileUtil.DeleteFileOrDirectory(path + "Win64/");
 			Directory.CreateDirectory(path + "Win64/");
 			BuildPipeline.BuildPlayer(levels, path + "Win64/DGE_win64.exe", BuildTarget.StandaloneWindows64, BuildOptions.None);
-			executeCommand("cd /d " + path + "Win64/ & ../7za a DGE_win64.zip DGE* & del *.exe & rd /S /Q DGE_win64_Data");
+			//executeCommand("cd /d " + path + "Win64/ & ../7za a DGE_win64.zip DGE* & del *.exe & rd /S /Q DGE_win64_Data");
 		}
 		if(windows32) {
 			FileUtil.DeleteFileOrDirectory(path + "Win32/");
