@@ -56,11 +56,13 @@ public class Build {
 			FileUtil.DeleteFileOrDirectory(path + "Win64/");
 			Directory.CreateDirectory(path + "Win64/");
 			BuildPipeline.BuildPlayer(levels, path + "Win64/DGE_win64.exe", BuildTarget.StandaloneWindows64, BuildOptions.None);
+			//executeCommand("cd /d " + path + "Win64/ & ../7za a DGE_win64.zip DGE* & del *.exe & rd /S /Q DGE_win64_Data");
 		}
 		if(windows32) {
 			FileUtil.DeleteFileOrDirectory(path + "Win32/");
 			Directory.CreateDirectory(path + "Win32/");
 			BuildPipeline.BuildPlayer(levels, path + "Win32/DGE_win32.exe", BuildTarget.StandaloneWindows, BuildOptions.None);
+
 		}
 		if(android) {
 			FileUtil.DeleteFileOrDirectory(path + "Android/");
@@ -82,5 +84,15 @@ public class Build {
 			Directory.CreateDirectory(path + "Web/");
 			BuildPipeline.BuildPlayer(levels, path + "Web/", BuildTarget.WebGL, BuildOptions.None);
 		}
+	}
+
+	public static void executeCommand(String command) {
+		System.Diagnostics.Process process = new System.Diagnostics.Process();
+		System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+		startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+		startInfo.FileName = "cmd.exe";
+		startInfo.Arguments = "/C " + command;
+		process.StartInfo = startInfo;
+		process.Start();
 	}
 }

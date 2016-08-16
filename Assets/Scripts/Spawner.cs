@@ -41,6 +41,7 @@ public class Spawner : MonoBehaviour {
 	private void NextWave() {
 		wave++;
 		MakeList();
+		difficulty = wave + wave;
 		nextTime = Time.time;
 		waveText.text = "Wave: " + wave;
 	}
