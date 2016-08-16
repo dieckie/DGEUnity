@@ -9,7 +9,7 @@ Wellen:
 	Scheller werdende Gegner / Mehr Zufall dadrin -- das klingt gut
 	mehr verschiedene(schwerere) Gegener statt nur immer mehr der selben Art
 	(Differences in Scale vs Differences in Kind)
-	Prozedural generiert?
+	Prozedural generiert? ✔
 	
 UI:
 	Vorschau der nexten Welle( imgur.com/bng1UuE )?
