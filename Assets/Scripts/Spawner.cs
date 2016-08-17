@@ -2,9 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using Enemys;
 
 
-public class Spawner : MonoBehaviour {
+	public class Spawner : MonoBehaviour {
 
 	public List<EnemyDiff> enemys = new List<EnemyDiff>();
 	public int difficulty = 1;
@@ -72,5 +73,7 @@ public class Spawner : MonoBehaviour {
 		}
 	}
 
-
+	public void AddEnemy(int amount){
+		livingEnemys += amount;
+	}
 }

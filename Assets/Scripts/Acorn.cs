@@ -22,7 +22,8 @@ public class Acorn : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col != null) {
 			if (col.CompareTag("Enemy")) {
-			    SimpleEnemy enemy = col.GetComponent<SimpleEnemy>();
+				Enemy enemy = col.GetComponent<Enemy>();
+				
 				if(enemy != null) {
 					enemy.Damage(1);
 					Destroy(gameObject);

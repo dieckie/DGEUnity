@@ -1309,6 +1309,8 @@ MonoBehaviour:
     diff: 2
   - e: {fileID: 114000012991596506, guid: a715a3d3a0d4a634ca56b8015a61d01f, type: 2}
     diff: 3
+  - e: {fileID: 114000010288561750, guid: c3ee163980000a544ba7fc96e9a3ebdb, type: 2}
+    diff: 1
   difficulty: 1
   waveText: {fileID: 571674550}
   staticPuffer: 1

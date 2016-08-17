@@ -1,4 +1,5 @@
 ﻿using System;
+using Enemys;
 
 [Serializable]
 public class EnemyDiff {
